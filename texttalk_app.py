@@ -1,16 +1,10 @@
-
 import streamlit as st
 import spacy
 from textblob import TextBlob
 from collections import Counter
-import subprocess
 
-# Ensure the spaCy model is downloaded on Streamlit Cloud
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
-    nlp = spacy.load("en_core_web_sm")
+# Load spaCy model (installed via requirements.txt)
+nlp = spacy.load("en_core_web_sm")
 
 # Filler words list
 filler_words = ["um", "uh", "like", "you know", "actually", "literally", "basically", "stuff", "things", "thing"]
